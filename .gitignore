@@ -1,0 +1,5 @@
+nbproject/
+audio/*
+archive/*
+*.csv
+.~*
