@@ -36,7 +36,8 @@ error_reporting(ALL);
 $a = filter_input(INPUT_GET, 'a', FILTER_SANITIZE_STRING);
 $dir2 = $a ? $a : '';
 $dir = 'audio/' . $dir2;
-$cover = $mp3 = '';
+$cover = 'default.jpg';
+$mp3 = array();
 $archives = array();
 $elements = array();
 $n = 0;
@@ -72,18 +73,30 @@ if (is_dir($dir)) {
                     $titles = split('-', $file);
                     $title = ucfirst(trim($titles[1]));
                     $rank = trim($titles[0]);
-
+                    
+                    if(is_file("./audio/$file/cover.jpg")){
+                        $coverfile = $baseurl."/audio/$file/cover.jpg";
+                    } else 
+                        $coverfile = '/default.jpg';
 
 
                     $elements[$file] = "<div class='release'>"
-                            . "<a href='$baseurl/album/$file.php' class='folder'><img src='$baseurl/audio/$file/cover.jpg' /><br/>$title</a></div>";
+                            . "<a href='$baseurl/album/$file.php' class='folder'>"
+                            . "<img src='$coverfile' />"
+                            . "<br/>$title</a>"
+                            . "</div>";
                 } else {
                     if (strstr($file, '.mp3')) {
                         $n++;
                         $url = $baseurl.'/'.$dir . '/' . $file;
-                        $titles = split('-', str_replace('.mp3', '', $file));
-                        $title = trim($titles[1]);
-                        $rank = trim($titles[0]);
+                        if (strstr($file, '-')) {
+                            $titles = split('-', str_replace('.mp3', '', $file));
+                            $title = trim($titles[1]);
+                            $rank = trim($titles[0]);
+                        } else {
+                            $title = $file;
+                            $rank = $n;
+                        }
 
                         $mp3[$file] = array('url' => $url, 'title' => ucfirst($title), 'rank' => $rank);
                         if ($rank == $track) {
@@ -164,10 +177,7 @@ $albumurl = $baseurl.'/album/'.$a.'.php';
 
 </head>
 <body>
-    <?php if ($a): ?>
-        <iframe src="http://lematin.5tfu.org/2017/9.php" style="height:100%;width:100%;position:fixed;z-index:-500;border:none;margin:0;padding:0;">
-        <?php endif; ?>
-    </iframe>
+
     <div class="container <?= $a ? '' : 'isDir'; ?>">
 
         <header style="text-align: left;">
@@ -194,7 +204,7 @@ $albumurl = $baseurl.'/album/'.$a.'.php';
             echo $erreur;
         }
         ?>
-        <?php if ($cover) : ?>
+        <?php if ($cover && $cover != 'default.jpg') : ?>
             <div class="right inline">
                 <img src="<?= $baseurl.'/'.$cover; ?>" />
             </div>
@@ -313,7 +323,7 @@ $albumurl = $baseurl.'/album/'.$a.'.php';
                 par.addClass('active').siblings().removeClass('active');
                 audio[0].load();
                 audio[0].play();
-                history.pushState('data to be passed', 'Title of the page', '<?= $baseurl; ?>/album/<?= $_GET['a']; ?>.php/' + rank);
+               // history.pushState('data to be passed', 'Title of the page', '<?= $baseurl; ?>/album/<?= $_GET['a']; ?>.php/' + rank);
 
             }
         </script>
