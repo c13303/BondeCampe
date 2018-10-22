@@ -32,7 +32,7 @@ $url = 'https://github.com/c13303/BondeCampe';
 
 require('include.php');
 $dir = "audio";
-error_reporting(ALL);
+
 $a = filter_input(INPUT_GET, 'a', FILTER_SANITIZE_STRING);
 $dir2 = $a ? $a : '';
 $dir = 'audio/' . $dir2;
@@ -70,7 +70,7 @@ if (is_dir($dir)) {
 
             if ($valid) {
                 if (is_dir($dir . '/' . $file)) {
-                    $titles = split('-', $file);
+                    $titles = explode('-', $file);
                     $title = ucfirst(trim($titles[1]));
                     $rank = trim($titles[0]);
                     
@@ -90,7 +90,7 @@ if (is_dir($dir)) {
                         $n++;
                         $url = $baseurl.'/'.$dir . '/' . $file;
                         if (strstr($file, '-')) {
-                            $titles = split('-', str_replace('.mp3', '', $file));
+                            $titles = explode('-', str_replace('.mp3', '', $file));
                             $title = trim($titles[1]);
                             $rank = trim($titles[0]);
                         } else {
