@@ -7,6 +7,11 @@ and open the template in the editor.
     Created on : Dec 29, 2016, 8:50:19 AM
     Author     : c13303
 */
+
+audio{
+    display:none;
+}
+
 .shipping{
     font-size:11px;
     margin-bottom: 20px;

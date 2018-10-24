@@ -1,16 +1,7 @@
 <?php
-$artistname = "bndeoeti";
-$author = 'Charles Torris';
-$authorUrl = 'http://charlestorris.5tfu.org';
-$email = 'erreure@gmail.com';
 
-/* default site share image */
-$ogimage = 'http://bondecampe.5tfu.org/audio/hidden-2018%20Live%20Demo/cover.jpg';
-
-/* base site */
-$baseurl = 'http://bondecampe.5tfu.org';
  
-
+require('config/config.php');
 /* config checks */
 
 if (!is_dir('audio')) {
@@ -28,7 +19,7 @@ if (!is_file('stats.csv')){
     fopen('stats.csv','w');
 }
 
-$url = 'https://github.com/c13303/BondeCampe';
+
 
 require('include.php');
 $dir = "audio";
@@ -172,7 +163,7 @@ $albumurl = $baseurl.'/album/'.$a.'.php';
         <meta name="viewport" content="width=device-width, user-scalable=yes">
 
     </head>
-    <link rel="icon" href="<?= $baseurl; ?>/favicon.png" />
+    <link rel="icon" href="<?= $baseurl; ?>/config/favicon.png" />
 
 
 </head>
