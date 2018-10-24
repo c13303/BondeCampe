@@ -1,7 +1,7 @@
 <?php
 
-$artistname = "bndeoeti";
-$author = 'Artist Name';
+$artistname = "Artist Name";
+$author = 'Site Author';
 $authorUrl = 'http://charlestorris.5tfu.org';
 $email = 'erreure@gmail.com';
 
