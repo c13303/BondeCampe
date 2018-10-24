@@ -68,7 +68,7 @@ if (is_dir($dir)) {
                     if(is_file("./audio/$file/cover.jpg")){
                         $coverfile = $baseurl."/audio/$file/cover.jpg";
                     } else 
-                        $coverfile = '/default.jpg';
+                        $coverfile = $ogimage;
 
 
                     $elements[$file] = "<div class='release'>"
