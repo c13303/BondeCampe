@@ -1,5 +1,5 @@
 <?php
-$artistname = "Le Matin";
+$artistname = "bndeoeti";
 $author = 'Charles Torris';
 $authorUrl = 'http://charlestorris.5tfu.org';
 $email = 'erreure@gmail.com';
