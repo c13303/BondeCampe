@@ -1,5 +1,5 @@
 nbproject/
 *.csv
 .~*
-
+*.log
 !.gitkeep
