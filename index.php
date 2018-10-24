@@ -95,10 +95,10 @@ if (is_dir($dir)) {
                         }
                     }
                     if (strstr($file, '.jpg')) {
-                        $cover = $dir . '/' . $file;
+                        $cover = $baseurl.'/audio/' .$a.'/'. $file;
                     }
                     if (strstr($file, '.png')) {
-                        $cover = $dir . '/' . $file;
+                        $cover = $baseurl.'/audio/' .$a.'/' . $file;
                     }
                     if (strstr($file, '.txt')) {
 
@@ -195,9 +195,9 @@ $albumurl = $baseurl.'/album/'.$a.'.php';
             echo $erreur;
         }
         ?>
-        <?php if ($cover && $cover != 'default.jpg') : ?>
+        <?php if ($cover && $cover != $ogimage) : ?>
             <div class="right inline">
-                <img src="<?= $baseurl.'/'.$cover; ?>" />
+                <img src="<?= $cover; ?>" />
             </div>
         <?php endif; ?>
         <div class="left inline">
