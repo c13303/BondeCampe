@@ -3,3 +3,5 @@ nbproject/
 .~*
 *.log
 !.gitkeep
+config/config.php
+
