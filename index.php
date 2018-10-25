@@ -149,7 +149,7 @@ $albumurl = $baseurl . '/album/' . $a . '.php';
     <head>
         <meta charset="utf-8">
         <title><?= $pagetitle; ?> <?= $dir2; ?></title>
-        <link rel="stylesheet" type="text/css" href="<?= $baseurl; ?>/mystyle.css" />
+        <link rel="stylesheet" type="text/css" href="<?= $baseurl; ?>/theme/mystyle.css" />
         <style>
             p { clear: both; }
         </style>
@@ -162,7 +162,13 @@ $albumurl = $baseurl . '/album/' . $a . '.php';
         <meta property="og:url" content="<?= $albumurl; ?>" />
         <meta property="og:description" content="<?= $metadescription; ?>" />
         <meta name="viewport" content="width=device-width, user-scalable=yes">
-
+        <style>          
+            <?php
+            echo $background ? ' body{ background : '.$background.'}' : ''; 
+            echo  $color ? ' body{ color : '.$color.'}' : ''; 
+            echo  $linkcolor ? ' a{ color : '.$linkcolor.'}' : ''; 
+            ?>
+        </style>
     </head>
     <link rel="icon" href="<?= $baseurl; ?>/config/favicon.png" />
     <script src="<?= $baseurl; ?>/lib/audiojs/audio.min.js"></script>
@@ -317,7 +323,7 @@ $albumurl = $baseurl . '/album/' . $a . '.php';
 
 
     <div class='footer'>
-        <a target="_blank" href="<?= $authorUrl; ?>"><?= $author; ?></a> / <a href="<?= $url; ?>">Bondecampe High-Technology ( ͡° ͜ʖ ͡°) </a> <a href="mailto:<?= $email; ?>">email</a> / <a href="/?c=hidden" style="color:black !important;">hidden</a>
+        <a target="_blank" href="<?= $authorUrl; ?>"><?= $author; ?></a> / <a href="<?= $url; ?>" target="_blank">Bondecampe</a> / <a href="mailto:<?= $email; ?>">email</a> / <a href="/?c=hidden" style="color:<?= $background ? $background : 'white'; ?> !important;">hidden</a>
     </div>
 
     <?php
