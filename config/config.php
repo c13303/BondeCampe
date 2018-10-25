@@ -15,3 +15,5 @@ $ogimage = $baseurl.'/config/default.jpg';
 
 /* github url */
 $url = 'https://github.com/c13303/BondeCampe';
+
+$allow_download = true;

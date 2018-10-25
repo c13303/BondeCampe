@@ -1,4 +1,8 @@
 <?php
+
+
+$allow_download = true;
+
 require('config/config.php');
 /* config checks */
 
@@ -33,6 +37,7 @@ $n = 0;
 $is_hidden = 0;
 $pagetitle = '';
 $text = '';
+
 $track = filter_input(INPUT_GET, 'track', FILTER_SANITIZE_NUMBER_INT);
 
 $criteria = filter_input(INPUT_GET, 'c', FILTER_SANITIZE_URL);
@@ -261,12 +266,12 @@ $albumurl = $baseurl . '/album/' . $a . '.php';
                         if (is_array($html) && $html['url']) {
                             $ntrack++;
                             ?>
-                            <li <?php if ($html['rank'] == $track) echo 'class="active"'; ?> data-rank='<?= $html['rank']; ?>'>
-                                <a href="#" id="playtrack<?= $ntrack; ?>" data-src="<?= $html['url']; ?>">
+                            <li <?php if ($html['rank'] == $track) echo 'class="active"'; ?> data-rank='<?= $html['rank']; ?>'>                                 
+                                <a href="<?= $html['url']; ?>" id="playtrack<?= $ntrack; ?>" data-src="<?= $html['url']; ?>">
                                     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512"><g></g><path d="M152.443 136.417l207.114 119.573-207.114 119.593z" fill="#ccc" /></svg>
                                     <?= $html['title']; ?> 
-                                </a>
+                                </a>                              
                             </li>
 
                             <?php
@@ -297,11 +302,9 @@ $albumurl = $baseurl . '/album/' . $a . '.php';
             <?php
             if (!empty($rar) && empty($nozip)) {
                 ?>
-                <div class='monzip'><a href="<?= $baseurl; ?>/<?= $rar; ?>" class='rar' >  
+                <div class='monzip'><a href="<?= $baseurl; ?>/<?= $rar; ?>" class='rar' > 
 
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
-                        <g><g><path d="M500,530.6l245-245H561.3v-245H438.8v245H255L500,530.6z M722.7,430.4l-68.7,68.7L903,591.9L500,742.1L97,591.9l248.9-92.8l-68.7-68.7L10,530.6v245l490,183.8l490-183.8v-245L722.7,430.4z"/></g></g>
-                        </svg>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve"><g><g><path d="M500,530.6l245-245H561.3v-245H438.8v245H255L500,530.6z M722.7,430.4l-68.7,68.7L903,591.9L500,742.1L97,591.9l248.9-92.8l-68.7-68.7L10,530.6v245l490,183.8l490-183.8v-245L722.7,430.4z"/></g></g></svg>
                         <br/>full album rar (LOSSLESS .flac)</a></div>
                 <?php
             }
