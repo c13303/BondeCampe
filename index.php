@@ -1,4 +1,6 @@
 <?php
+
+
 $allow_download = true;
 
 include('config/config.php');
@@ -124,6 +126,11 @@ if (is_dir($dir)) {
                         $url = $dir . '/' . $file;
                         $rar = $url;
                     }
+					
+					if (strstr($file, '.zip')) {
+                        $url = $dir . '/' . $file;
+                        $rar = $url;
+                    }
                     if (strstr($file, '.config')) {
                         $config = file_get_contents($dir . '/' . $file);
                         if (strstr($config, 'NOZIP')) {
@@ -226,15 +233,15 @@ if (!empty($elements))
                             audio.play();
                         }
                     });
-                    console.log(a);
-
                     // Load in the first track
                     var audio = a[0];
                     first = $('ol a').attr('data-src');
-                    console.log(first);
-                    $('ol li').first().addClass('playing');
-                    audio.load(first);
-
+                   
+                    if(first){
+                         $('ol li').first().addClass('playing');
+                         audio.load(first);
+                    }
+                   
                     // Load in a track on click
                     $('ol li').click(function (e) {
                         e.preventDefault();
@@ -325,7 +332,7 @@ if (!empty($mp3) && empty($nozip)) {
 
 
     <div class='footer'>
-        <a target="_blank" href="<?= $authorUrl; ?>"><?= $author; ?></a> / <a href="<?= $url; ?>" target="_blank">Bondecampe</a> / <a href="mailto:<?= $email; ?>">email</a> / <a href="/?c=hidden" style="color:<?= $background ? $background : 'white'; ?> !important;">hidden</a>
+        <a target="_blank" href="<?= $authorUrl; ?>"><?= $author; ?></a> / <a href="<?= $giturl; ?>" target="_blank">Git</a> / <a href="mailto:<?= $email; ?>">email</a> / <a href="/?c=hidden" style="color:<?= $background ? $background : 'white'; ?> !important;">hidden</a>
     </div>
 
 <?php

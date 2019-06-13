@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * chown -r user:www-data *
+ * chmod 775 archive
+ */
 /* copy this file to config/config.php */
 
 
@@ -18,3 +22,7 @@ $ogimage = $baseurl.'/config/default.jpg';
 
 /* github url */
 $url = 'https://github.com/c13303/BondeCampe';
+
+$background;
+$color;
+$linkcolor;
