@@ -13,7 +13,6 @@ A simple, no-database PHP script for easily sharing music albums on your website
 - Allows individual track playback and downloads
 - Automatically creates downloadable ZIP archives for entire albums
 - Supports additional file types (e.g., lossless formats like .rar)
-- Includes visitor activity logging as CSV (no third-party analytics)
 
 ## Installation
 
@@ -80,9 +79,6 @@ Edit configuration variables (e.g., artist name, base URL) in:
 config/config.php
 ```
 
-## Logging Visitor Activity
-
-Visitor logs are automatically saved as `stats.csv` in the script directory, no external analytics required.
 
 ---
 
