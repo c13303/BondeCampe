@@ -1,0 +1,10 @@
+nbproject/
+.csv
+.~
+.log
+!.gitkeep
+config/config.php
+audio/
+*.mp3
+.zip
+archive/

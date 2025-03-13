@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /
+
+# Corriger les URLs des albums avec des espaces
+RewriteRule ^album/(.*)$ index.php?a=$1 [L,QSA]
+
+# Activer l'indexation des répertoires si besoin
+Options +Indexes
+DirectoryIndex index.php index.html
