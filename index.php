@@ -182,7 +182,7 @@ if ($homepage) {
     <meta charset="utf-8">
     <title><?= htmlspecialchars($pagetitle); ?></title>
     <link rel="stylesheet" href="<?= $baseurl; ?>/theme/mystyle.css" />
-    <script src="<?= $baseurl; ?>/lib/jquery-3.5.0.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="<?= $baseurl; ?>/lib/audiojs/audio.min.js"></script>
     <meta name="description" content="<?= substr(strip_tags($text), 0, 100); ?>" />
     <meta property="og:image" content="<?= $cover; ?>" />
