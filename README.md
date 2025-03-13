@@ -1,96 +1,91 @@
 # BondeCompe
-music sharing script
 
-example : http://bondecampe.5tfu.org
+A simple, no-database PHP script for easily sharing music albums on your website.
 
-If you have a FTP connexion, this script aim to be the simplest way to share music albums. 
-Features : 
+**Demo:** [http://bondecampe.5tfu.org](http://bondecampe.5tfu.org)
+
+---
+
+## Features
 
 - No database required
-- Display of albums as a page
-- HTML5 mp3 player
-- Download of single tracks & full album archive
-- Auto-create zip archive of full albums
-- Folders (albums, demos ..)
-- Log visitor activity (no google analytics ...) as .csv file
+- Automatically generates an album page with an HTML5 MP3 player
+- Allows individual track playback and downloads
+- Automatically creates downloadable ZIP archives for entire albums
+- Supports additional file types (e.g., lossless formats like .rar)
+- Includes visitor activity logging as CSV (no third-party analytics)
 
+## Installation
 
-----------------------------------
+1. Copy the entire script onto your PHP-enabled web server.
+2. Ensure your server supports PHP (no database required).
+3. Adjust settings in `index.php` and `config/config.php` as needed (e.g., set `$artist`, `$baseurl`).
 
-Install : 
+## Adding Albums
 
-Copy The script on a php server, no database required
+To add a new album:
 
-Modifiy variables such as $artist in index.php as configuration.
+- Create a new folder inside `/audio` following this naming convention:
+  ```
+  /audio/number-album-title
+  ```
+  Example: `/audio/0-my-album`
 
+- Within this folder:
+  - Name each MP3 file with the format:
+    ```
+    number-title.mp3
+    ```
+    Example: `1-track-one.mp3`, `2-track-two.mp3`, etc.
+  
+  - Add a cover image named exactly:
+    ```
+    cover.jpg
+    ```
 
-----------------------------------
+  - Optionally, include:
+    - An HTML or text file (`about.html` or `about.txt`) for additional album description.
+    - A `.rar` file containing lossless audio formats.
+    - A `.config` file for custom settings, such as disabling zip downloads:
+      ```
+      NOZIP
+      ```
 
-Add an album :
+Example album structure:
+```
+/audio/0-my-album
+├── 1-track-one.mp3
+├── 2-track-two.mp3
+├── cover.jpg (required)
+├── about.html (optional)
+├── flac.rar (optional)
+└── .config (optional)
+```
 
--Just create a folder in /audio named with number-title, example  : /0-example
+## Automatic ZIP Creation
 
--Inside the folder, name mp3 like this number-title.mp3, example : 1-title.mp3, 2-title.mp3 etc ...
+- Zip archives are automatically created on-demand the first time an album zip is downloaded and stored in `/archive`.
+- To refresh a zip file (if album content changes), delete the existing zip in `/archive`. The next download request will regenerate it automatically.
+- Ensure the `/archive` folder is writable by your server.
 
--Rename the cover art (exact name) : cover.jpg
+## Usage
 
--Put any .html OR .txt file with the text to be displayed, example : about.html
+- Access your script via your configured URL. Albums are automatically listed.
+- Visitors can stream MP3 tracks directly on the page or download individual tracks and complete albums as zip archives.
 
+## Customizing
 
-Full example of an album architecture: 
+Edit configuration variables (e.g., artist name, base URL) in:
+```
+config/config.php
+```
 
-0000-Album 1 Title Folder
-    1-title.mp3
-    2-title.mp3
-    3-title.mp3
-    cover.jpg (required)
-    about.html
-    flac.rar (optionnal)
-    .config (optionnal)
+## Logging Visitor Activity
 
+Visitor logs are automatically saved as `stats.csv` in the script directory, no external analytics required.
 
+---
 
+**Author:** Charles Torris  
+**Contact:** [erreure@gmail.com](mailto:erreure@gmail.com)
 
-----------------------------------
-Zip archive : 
-
-When the archive is requested, if the file doesn't exist yet, zip.php create a zip archive in /archive with all the content of the folder.
-
-The /archive folder should be writable.
-
-If later the album folder (in /audio) has somehow changed (mp3 replaced for example), just delete the archive in /archive and the .zip will be regenerated on next request.
-
-
-
-----------------------------------
-
-Include a lossless files archive  :
-
-Put a .rar file with files inside it and the link will be created
-
-
-
-----------------------------------
-Description HTML
-
-Put any .html file in the folder
-
-
-
-----------------------------------
-
-Config 
-
-Put a .config file into folder
-Write option inside :
-NOZIP : disabled zip/rar download on the page
-
-
-
-
-
-
-
-author : Charles Torris
-
-contact : erreure@gmail.com
