@@ -1,0 +1,201 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 29, 2016, 8:50:19 AM
+    Author     : c13303
+*/
+
+audio{
+    display:none;
+}
+
+.shipping{
+    font-size:11px;
+    margin-bottom: 20px;
+}
+h1{
+    font-size: 22px;
+    font-weight: normal;
+}
+header{
+    margin-bottom:30px;
+    margin-top:30px;
+    padding-top:20px;
+}
+body{
+    margin:0;
+    padding:0;
+    font-size:20px;
+    font-family:monospace;
+}
+a{
+    color:#CCC;
+    text-decoration:none;
+}
+.active a{
+    color:#dc4e4e !important;
+}
+audio{
+    margin-bottom: 20px;
+    width:100%;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+    min-height:600px;
+
+}
+.isDir{
+    text-align:center;
+}
+
+.rc{
+    font-size:12px;
+    font-style: italic;
+    color:white;
+    margin-bottom:30px;
+}
+.inline{
+    display:inline-block;
+    width:40%;
+    vertical-align: top;
+/*     overflow: hidden; */
+
+}
+.inline img{
+    max-width: 100%;
+    height:auto;
+    border:1px solid #333;
+}
+.left{
+    padding-left:30px;
+}
+.monzip{
+    text-align:center;
+    margin-top:30px;
+}
+.zip,.rar{
+    color:#dc4e4e !important;
+}
+li{
+    list-style:none;
+}
+.monzip svg {
+    fill: #dc4e4e;
+    width: 40px;
+    height:auto;
+}
+#playlist svg{
+    width: 30px;
+    height: auto;
+    position: absolute;
+    margin-left: -35px;
+    margin-top: -5px;
+}
+#playlist .active svg path{
+    fill:#dc4e4e !important;
+}
+
+.release{
+    display:inline-block;
+    width:300px;
+    height: 360px;
+    margin: 30px;
+    vertical-align: top;
+}
+.release img{
+    width:300px;
+    height:auto;
+    border:1px solid #333;
+
+
+}
+
+.footer{
+    text-align: center;
+    font-size: 14px;
+    position: absolute;
+    right: 10px;
+    margin-left: -150px;
+    top: 6px;
+    color:#111 !important;
+}
+
+
+.footer a {
+    color:#666 !important;
+}
+
+@media screen and (max-width:900px){
+    .inline{
+        display:block;
+        width:80%;
+        margin:auto;
+        padding-bottom:30px;
+    }
+    .container{
+        text-align:left;
+    }
+}
+
+#visuframe{
+    left: 0;
+    top: 0;
+    position: absolute;
+    margin:0;
+    padding:0;
+    border:0;
+    width:100%;
+    height:100%;
+   
+    z-index:-100;
+} 
+
+.iframed h1, .iframed .footer{
+    display:none;
+}
+.iframed a,.iframed{
+    color: #0089ff !important;
+    font-size:15px !important;
+}
+@media screen and (max-width:900px){
+    .audiojs{
+
+    }
+    .iframed .container{
+        width: 100%;
+        max-width: none;
+        height: 100%; 
+    }
+
+.iframed .left{
+position: relative;
+    left: 0;
+    top: 0;
+}
+
+}
+.iframed .right{
+    display:none;
+}
+.audiojs{
+    width:300px;
+}
+.audiojs .scrubber{
+    width:125px;
+}
+.iframed #playlist svg path{
+    fill: yellow;
+}
+
+.iframed .left{
+    padding: 20px;
+    font-size: 13px;
+    position: absolute;
+    right: 50%;
+    top: 20px;
+    max-width: 313px;
+}

@@ -1,0 +1,7 @@
+nbproject/
+*.csv
+.~*
+*.log
+!.gitkeep
+config/config.php
+audio/*

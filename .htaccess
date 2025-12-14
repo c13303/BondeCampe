@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^album/([^/]+).php$ /?a=$1 [L,QSA,B]
+RewriteRule ^album/([^/]+).php/([^/]+)$ /?a=$1&track=$2 [L,QSA,B]
+RewriteRule ^c/([^/]+).php$ /?c=$1 [L,QSA,B]
