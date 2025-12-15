@@ -59,7 +59,7 @@ header("Pragma: public");
 header("Expires: 0");
 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 header('Content-Type: application/zip');
-header('Content-Disposition: attachment; filename=charlestorris-' . $name . '.zip');
+header('Content-Disposition: attachment; filename=BondeCampe-' . $name . '.zip');
 readfile($zipname);
 
 // Log the download
